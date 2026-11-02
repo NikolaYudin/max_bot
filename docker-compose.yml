@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  aegis-bot:
+    build: .
+    container_name: aegis-max-bot
+    restart: unless-stopped
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    environment:
+      - TZ=Europe/Moscow
+      - BOT_TOKEN=ВАШ_ТОКЕН_БОТА_MAX
+      - HA_URL=http://ВАШ_АДРЕС_HA_В_LAN:8123
+      - HA_TOKEN=ВАШ_LONG_LIVED_ACCESS_TOKEN
+      - MQTT_URL=mqtt://ВАШ_АДРЕС_MQTT_В_LAN:1883
+      - MQTT_USER=mqttroot
+      - MQTT_PASS=ВАШ_MQTT_ПАРОЛЬ
